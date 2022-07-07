@@ -7,7 +7,7 @@
   
 <mapper namespace="com.lily.ex.database.dao.UsedGoodsDAO">
   
-  	<select id="selectUsedGoodsList" resultType="com.lily.ex.database.model.UsedGoods">
+  	<select id="selectUsedGoodsList" resultType="com.lily.ex.database.model.UsedGoods">  
   	
   		SELECT
   			`id`
@@ -25,5 +25,5 @@
   	</select>
   
   
-  
   </mapper>
+  

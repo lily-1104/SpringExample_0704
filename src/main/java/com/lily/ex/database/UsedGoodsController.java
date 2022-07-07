@@ -13,8 +13,8 @@ import com.lily.ex.database.model.UsedGoods;
 @Controller
 public class UsedGoodsController {
 	
-	@Autowired
-	private UsedGoodsBO usedGoodsBO;
+	@Autowired	 // 임포트
+	private UsedGoodsBO usedGoodsBO;	// 임포트
 	
 	
 	// used goods 안에 있는 모든 내용을 json으로 전달한다 
@@ -28,7 +28,7 @@ public class UsedGoodsController {
 	}
 	
 	
-	//  http://localhost:8080/database/ex01/1
+		//  http://localhost:8080/database/ex01/1
 
 	
 }
