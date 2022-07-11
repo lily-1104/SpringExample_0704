@@ -24,6 +24,67 @@
 			`id` = #{id}
 	
 	</select>
+	
+	
+		<!--  id : 메소드 이름, insert 에서는 resultType이 정해져있어서 따로 작성 안해도됨  -->  
+	<insert id="insertReview" parameterType="map" >
+	
+		INSERT INTO `new_review`
+			(		<!--  id는 자동 증가라 필요 X -->		
+				`storeId`
+				, `menu`
+				, `userName`
+				, `point`
+				, `review`
+				, `createdAt`
+				, `updatedAt`
+			)
+		VALUES
+			(		<!--  아래는 컬럼 이름 아니고 DAO의 @파라미터 값 (멤버변수)  -->
+				#{storeId}
+				, #{menu}
+				, #{userName}
+				, #{point}
+				, #{review}
+				, now()
+				, now()
+			)
+		
+	</insert>  
+		
+		
+	<insert id="insertReviewByObject" parameterType="com.lily.ex.mybatis.model.Review">  
+	
+		INSERT INTO `new_review`
+			(		
+				`storeId`
+				, `menu`
+				, `userName`
+				, `point`
+				, `review`
+				, `createdAt`
+				, `updatedAt`
+			)
+		VALUES
+			(
+				#{storeId}
+				, #{menu}
+				, #{userName}
+				, #{point}
+				, #{review}
+				, now()
+				, now()
+			)
+			
+	</insert>
+
+
+
+
+
+
+
+
 
 
 </mapper>

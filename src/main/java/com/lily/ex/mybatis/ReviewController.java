@@ -10,6 +10,7 @@ import com.lily.ex.mybatis.bo.ReviewBO;
 import com.lily.ex.mybatis.model.Review;
 
 @Controller
+@RequestMapping("/mybatis")
 public class ReviewController {
 	
 	
@@ -20,7 +21,7 @@ public class ReviewController {
 	// id가 3인 리뷰 가져오기 
 		// /mybatis/ex01/1?id=8
 	@ResponseBody
-	@RequestMapping("/mybatis/ex01/1")
+	@RequestMapping("/ex01/1")
 	public Review review(
 			
 				// @RequestParam 사용법
@@ -38,9 +39,57 @@ public class ReviewController {
 		
 	}
 	
-	
 		//  http://localhost:8080/mybatis/ex01/1
 		//  http://localhost:8080/mybatis/ex01/1?id=2
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/ex02/1")
+	public String addReview() {
+		
+		// 리뷰 한행 저장
+			// storeId, menu, userName, point, review
+			// 4, "콤비네이션 피자", "김바다", 4.5, "할인도 많이 받고 잘 먹었습니다" 
+		
+		int count = reviewBO.addReview(4, "콤비네이션 피자", "김바다", 4.5, "할인도 많이 받고 잘 먹었습니다");  
+		
+		return "삽입 결과 : " + count;
+		
+	}
+	
+	
+		//  http://localhost:8080/mybatis/ex02/1
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/ex02/2")
+	public String addReviewByObject() {
+		
+		// 2, "뿌링클", "김인규", 4.0, "역시 뿌링클은 진리입니다"
+		
+		Review review = new Review();
+		review.setStoreId(4);
+		review.setMenu("뿌링클");
+		review.setUserName("김인규");
+		review.setPoint(4.0);
+		review.setReview("역시 뿌링클은 진리입니다");
+		
+		
+		int count = reviewBO.addReviewByObject(review);
+		
+		return "삽입 결과 : " + count;
+		
+	}
+	
+	
+		//  http://localhost:8080/mybatis/ex02/2
+	
+	
+	
+	
+	
 	
 
 }
