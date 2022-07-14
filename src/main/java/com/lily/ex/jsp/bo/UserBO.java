@@ -16,6 +16,20 @@ public class UserBO {
 	public int addUser (String name, String yyyymmdd, String introduce, String email) {  
 		
 		return userDAO.insertUser(name, yyyymmdd, introduce,  email);
+	}
+	
+	
+	
+	public int addUserWithId(User user) {  
+		
+//			// 객체를 기반으로 insert
+//		User user = new User();
+//		user.setName(name);
+//		user.setYyyymmdd(yyyymmdd);
+//		user.setIntroduce(introduce);
+//		user.setEmail(email);
+		
+		return userDAO.insertUserWithId(user);
 		
 	}
 	

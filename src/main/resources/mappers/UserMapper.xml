@@ -34,6 +34,34 @@
 	
 	
 	
+	<insert id="insertUserWithId" parameterType="com.lily.ex.jsp.model.User"
+			useGeneratedKeys="true" keyProperty="id">  
+		
+		INSERT INTO 
+			`new_user`
+		(
+			`name`
+			, `yyyymmdd`
+			, `introduce`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		)
+		
+		VALUES
+		(
+			#{name}
+			, #{yyyymmdd}
+			, #{introduce}
+			, #{email}
+			, now()
+			, now()
+		)
+	
+	</insert>
+	
+	
+	
 		<!--  가장 최근 등록된 사용자 정보 조회  -->
 		
 	<select id="selectLastUser" resultType="com.lily.ex.jsp.model.User">
